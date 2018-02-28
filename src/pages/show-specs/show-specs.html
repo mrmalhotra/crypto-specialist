@@ -1,0 +1,27 @@
+<!--
+  Generated template for the ShowSpecsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      Current Value : {{currentCValue}}
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Markets Cap
+    </ion-card-header>
+    <ion-list>
+      <button ion-item *ngFor="let market of markets">
+        <ion-icon name="analytics" item-start *ngIf="market"></ion-icon>
+        {{market.market}}: {{market.price}}
+      </button>
+
+    </ion-list>
+  </ion-card>
+</ion-content>
