@@ -30,8 +30,15 @@ export class ShowSpecsPage {
     this.http.get('https://api.cryptonator.com/api/full/'+this.value+'-usd').map(res=>res.json())
       .subscribe(data=>{
         console.log('got the value ',data);
-        this.currentCValue = data.ticker.price;
-        this.markets = data.ticker.markets;
+
+        if(!data.success){
+          this.currentCValue = 'No Data';
+          this.markets = [];
+        }else{
+          this.currentCValue = data.ticker.price +' USD';
+          this.markets = data.ticker.markets;
+        }
+
         // this.startCountDown();
       });
 

@@ -17,11 +17,12 @@
       Markets Cap
     </ion-card-header>
     <ion-list>
-      <button ion-item *ngFor="let market of markets">
-        <ion-icon name="analytics" item-start *ngIf="market"></ion-icon>
-        {{market.market}}: {{market.price}}
-      </button>
-
+      <div *ngIf="markets.length >0">
+        <button ion-item *ngFor="let market of markets">
+          <ion-icon name="analytics" item-start></ion-icon>
+          {{market.market}}: {{market.price}} USD
+        </button>
+      </div>
     </ion-list>
   </ion-card>
 </ion-content>
