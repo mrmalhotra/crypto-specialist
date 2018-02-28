@@ -19,6 +19,7 @@ import {ShowSpecsPage} from "../show-specs/show-specs";
 export class ListOfCurrenciesPage {
 
   count:number = 0;
+  wannaLoad:boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http) {
   }
@@ -29,8 +30,8 @@ export class ListOfCurrenciesPage {
     console.log('ionViewDidLoad ListOfCurrenciesPage');
     this.http.get('https://www.cryptonator.com/api/currencies').map(res=>res.json())
       .subscribe(data=>{
+        this.wannaLoad = false;
         console.log('data is ',data)
-
         for (let i = 0; i < 30; i++) {
           this.people.push( data.rows[i]);
           this.count++;
@@ -47,7 +48,6 @@ export class ListOfCurrenciesPage {
           for (let i = this.count; i < this.count+30; i++) {
             this.people.push( data.rows[i]);
           }
-
           console.log('Async operation has ended');
           infiniteScroll.complete();
         }, 500);

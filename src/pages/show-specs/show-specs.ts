@@ -32,24 +32,19 @@ export class ShowSpecsPage {
         console.log('got the value ',data);
         this.currentCValue = data.ticker.price;
         this.markets = data.ticker.markets;
-        this.startCountDown();
+        // this.startCountDown();
       });
 
 
   }
 
-    startCountDown = function(){
-      console.log('in start')
-      this.interval = setInterval(function () {
-
-        },10000);
-    }
-
-    ionViewDidLeave(){
-      clearInterval(this.interval);
-    }
-
-
-
-
+    // startCountDown = function(){
+    //   console.log('in start')
+    //   this.interval = setInterval(function () {
+    //     },10000);
+    // }
+    //
+    // ionViewDidLeave(){
+    //   clearInterval(this.interval);
+    // }
 }
