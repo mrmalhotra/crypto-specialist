@@ -39,19 +39,21 @@ export class ShowSpecsPage {
           this.markets = data.ticker.markets;
         }
 
-        // this.startCountDown();
+        this.startCountDown();
       });
 
 
   }
 
-    // startCountDown = function(){
-    //   console.log('in start')
-    //   this.interval = setInterval(function () {
-    //     },10000);
-    // }
-    //
+    startCountDown = function(){
+      console.log('in start')
+      this.interval = setInterval(function () {
+        console.log('checking updation again');
+        },10000);
+    }
+
     // ionViewDidLeave(){
+    //   console.log('delete files')
     //   clearInterval(this.interval);
     // }
 }

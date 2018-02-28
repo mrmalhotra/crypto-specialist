@@ -13,7 +13,7 @@ export class HomePage {
   }
 
   goForList(){
-    console.log('get them all bc');
+    // console.log('get them all');
     this.navCtrl.push(ListOfCurrenciesPage)
   }
 }

@@ -20,14 +20,10 @@ export class ListOfCurrenciesPage {
 
   count:number = 0;
   wannaLoad:boolean = true;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http) {
-  }
   people: any[] = [];
   searchQuery: string = '';
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListOfCurrenciesPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http) {
     this.http.get('https://www.cryptonator.com/api/currencies').map(res=>res.json())
       .subscribe(data=>{
         this.wannaLoad = false;
@@ -35,8 +31,15 @@ export class ListOfCurrenciesPage {
         for (let i = 0; i < 30; i++) {
           this.people.push( data.rows[i]);
           this.count++;
+          // console.log('value of count ',this.count)
         }
       })
+  }
+
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ListOfCurrenciesPage');
+
   }
 
   doInfinite(infiniteScroll) {
@@ -48,7 +51,9 @@ export class ListOfCurrenciesPage {
           for (let i = this.count; i < this.count+30; i++) {
             this.people.push( data.rows[i]);
           }
-          console.log('Async operation has ended');
+          this.count += 30;
+          // console.log('value of count ',this.count)
+          // console.log('Async operation has ended');
           infiniteScroll.complete();
         }, 500);
       })
